@@ -1,21 +1,35 @@
 import {
     createBrowserRouter,
-  } from "react-router-dom";
+} from "react-router-dom";
 import App from "../App";
 import Main from "../Layoutes/Main";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Home from "../HomePage/Home/Home";
+import Login from "../Pages/Users/Login/Login";
+import Register from "../Pages/Users/Register/Register";
 
 
-  const router = createBrowserRouter([
+const router = createBrowserRouter([
     {
-      path: "/",
-      element: <Main></Main>,
-      errorElement:<ErrorPage></ErrorPage>
-    //   children:[{
-    //     path:
-    //   }]
+        path: "/",
+        element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path:'login',
+                element:<Login></Login>
+            },
+            {
+                path:'register',
+                element:<Register></Register>
+            }
+        ]
     },
 
-  ]);
+]);
 
-  export default router
+export default router
