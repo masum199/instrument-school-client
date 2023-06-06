@@ -1,0 +1,22 @@
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .lol {
+    background: linear-gradient(45deg, #7a604d, #695259, #754545, #d195e3);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+  .cool{
+    background: linear-gradient(45deg, #4e3980, #581a2d, #cf6d6d, #581c1c);
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 200% 200%;
+  }
