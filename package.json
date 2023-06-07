@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
     "@material-tailwind/react": "^2.0.1",
     "firebase": "^9.22.1",
     "localforage": "^1.10.0",
@@ -17,6 +18,7 @@
     "particles.js": "^2.0.0",
     "particlesjs": "^2.2.3",
     "react": "^18.2.0",
+    "react-awesome-reveal": "^4.2.3",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
