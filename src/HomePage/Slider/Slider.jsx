@@ -6,7 +6,7 @@ import image1 from '../../assets/images/slider1.jpg';
 import image2 from '../../assets/images/slider2.jpg';
 import image3 from '../../assets/images/slider3.jpg';
 import './Slider.css'
-import { Fade } from 'react-awesome-reveal';
+import { Fade, Bounce } from 'react-awesome-reveal';
 
 const Slide = () => {
   const settings = {
@@ -28,7 +28,7 @@ const Slide = () => {
   };
 
   return (
-    <div className="w-full px-8">
+    <div className="w-full px-8 featured-item bg-fixed">
       <Slider {...settings}>
         <div className="relative h-full w-full">
           <img
@@ -39,11 +39,10 @@ const Slide = () => {
           <div className="absolute inset-0 grid  h-full w-full place-items-center bg-black/75">
             <div className="w-3/4 text-center md:w-2/4 text-white">
 
-              <Fade delay={1e1} cascade damping={1e-1}>
-                Easy-to-use animation library for React apps
+              <Fade delay={1e1} cascade damping={1e-1} className='text-5xl font-extrabold '>
+                Unleash Your Musical Talent
               </Fade>
-              <p></p>
-              <p></p>
+              <Bounce><p className="text-lg text-white">Discover a world of melody and rhythm</p></Bounce>
             </div>
           </div>
         </div>
@@ -56,11 +55,10 @@ const Slide = () => {
           <div className="absolute inset-0 grid  h-full w-full place-items-center bg-black/75">
             <div className="w-3/4 text-center md:w-2/4 text-white">
 
-              <Fade delay={1e1} cascade damping={1e-1}>
-                Easy-to-use animation library for React apps
+              <Fade delay={1e1} cascade damping={1e-1} className='text-5xl font-extrabold'>
+                Create Captivating Harmonies
               </Fade>
-              <p></p>
-              <p></p>
+              <Bounce><p className="text-lg">Compose and arrange your own masterpieces</p></Bounce>
             </div>
           </div>
         </div>
@@ -73,11 +71,10 @@ const Slide = () => {
           <div className="absolute inset-0 grid  h-full w-full place-items-center bg-black/75">
             <div className="w-3/4 text-center md:w-2/4 text-white">
 
-              <Fade delay={1e1} cascade damping={1e-1}>
-                Easy-to-use animation library for React apps
+              <Fade delay={1e1} cascade damping={1e-1} className='text-5xl font-extrabold'>
+                Feel the Beat
               </Fade>
-              <p></p>
-              <p></p>
+              <Bounce><p className="text-lg">Immerse yourself in the pulse of music</p></Bounce>
             </div>
           </div>
         </div>

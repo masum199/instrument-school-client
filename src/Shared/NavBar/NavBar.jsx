@@ -33,7 +33,7 @@ const NavBar = () => {
           </span>
         </a>
         <div className="flex md:order-2">
-          <img className='w-8 rounded-3xl lg:mx-4' src={user?.photoURL} alt="" />
+          {user && <img className='w-8 rounded-3xl lg:mx-4' src={user?.photoURL} alt="" />}
           {
             (user ? <button onClick={handleLogout} className="btn btn-warning">Logout</button> : <Link to="/login"><button className="btn btn-success">Login</button></Link>)
           }
@@ -66,9 +66,11 @@ const NavBar = () => {
           id="navbar-cta"
         >
           <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <Link to='/'>
             <li className='btn btn-active btn-primary'>
                 Home
             </li>
+            </Link>
             <li>
             Instructors
             </li>

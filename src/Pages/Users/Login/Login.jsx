@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './Login.css'
 import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import { BsGoogle } from 'react-icons/Bs';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { LogIn, googleSignIn } = useContext(AuthContext)
@@ -84,6 +84,7 @@ const Login = () => {
                   {errors.password?.type === 'required' && <span className="text-amber-400">password is required</span>}
                   <span className="text-amber-400">{errorMessage}</span>
                 </div>
+                <p className='text-white'>Don't Have an Account? <Link to='/register'>Register Now!!!</Link></p>
                 <div className="form-control mt-6">
                   <button className="btn btn-success text-white">Login</button>
                 </div>
@@ -91,7 +92,7 @@ const Login = () => {
               <div className='mt-10 text-center text-2xl'>
                 <p> ------ Or Login With ------ </p>
               </div>
-              <div>
+              <div className='text-center pt-10'>
                 <a onClick={handleGoogleSignIn} className="inline-flex overflow-hidden text-white bg-gray-900 rounded group">
                   <span className="px-3.5 py-2 text-white bg-[#dc3545;]  flex items-center justify-center">
                     <BsGoogle></BsGoogle>
