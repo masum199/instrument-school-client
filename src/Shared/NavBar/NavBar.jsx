@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/sports logo3.png'
+import logo from '../../assets/images/academy logo.jpg'
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +17,7 @@ const NavBar = () => {
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-          Sports Academy
+          Summer Hub
           </span>
         </a>
         <div className="flex md:order-2">

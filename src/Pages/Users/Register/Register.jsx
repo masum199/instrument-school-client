@@ -4,6 +4,7 @@ import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import canvaImage from '../../../assets/images/cool-background.png'
 
 
 
@@ -16,7 +17,7 @@ const Register = () => {
     const navigate = useNavigate()
 
 
-    const onSubmit = data => {
+    const onRegister = data => {
         console.log(data)
         CreateUser(data.email, data.password)
             .then(result => {
@@ -40,11 +41,13 @@ const Register = () => {
     };
 
     return (
+        
         <div className="hero lol min-h-screen bg-base-200">
+            
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
                     <div className="card-body cool">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onRegister)}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-white">Name</span>
@@ -56,7 +59,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text text-white">Email</span>
                                 </label>
-                                <input type="text" {...register("email", { required: true })} placeholder="Email" className="input input-bordered" />
+                                <input type="email" {...register("email", { required: true })} placeholder="Email" className="input input-bordered" />
                                 {errors.email && <span className="text-amber-400">Email is required</span>}
                             </div>
                             <div className="form-control">

@@ -11,7 +11,7 @@
   }
   
   .lol {
-    background: linear-gradient(45deg, #7a604d, #695259, #754545, #d195e3);
+    background: linear-gradient(45deg, #b75fa4, #c86583, #754545, #d195e3);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
   }
