@@ -4,11 +4,20 @@ import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
-  const {user} = useContext(AuthContext)
+  const {user,logOut} = useContext(AuthContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleLogout = () => {
+    logOut()
+    .then(() => { })
+    .then(err => {
+      console.log(err);
+    })
+  }
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -26,7 +35,7 @@ const NavBar = () => {
         <div className="flex md:order-2">
           <img className='w-8 rounded-3xl lg:mx-4' src={user?.photoURL} alt="" />
           {
-            (user ? <button className="btn btn-sm">Logout</button> : <Link to="/login"><button className="btn btn-sm">Login</button></Link>)
+            (user ? <button onClick={handleLogout} className="btn btn-warning">Logout</button> : <Link to="/login"><button className="btn btn-success">Login</button></Link>)
           }
           <button
             type="button"

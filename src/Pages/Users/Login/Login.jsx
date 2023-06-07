@@ -18,7 +18,7 @@ const Login = () => {
     LogIn(data.email, data.password)
       .then(result => {
         setErrorMessage('')
-      
+      navigate('/')
         const loggedUser = result.user
         console.log(loggedUser)
       })
