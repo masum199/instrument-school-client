@@ -10,6 +10,7 @@ import Register from "../Pages/Users/Register/Register";
 import DashBoard from "../Layoutes/DashBoard";
 import AddClass from "../Pages/Dashboard/Instructors/AddClass";
 import Instructors from "../Pages/Instructors/Instructors";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element:<DashBoard></DashBoard>,
+        element:<PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
         children:[
             {
                 path:'addclass',
