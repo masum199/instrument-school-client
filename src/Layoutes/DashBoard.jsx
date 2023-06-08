@@ -13,7 +13,7 @@ const DashBoard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4">
           <li className="lg:block">
-            <NavLink to='/dashboard/adminhome'> Admin Home</NavLink>
+            <NavLink to='/dashboard/addclass'> Admin Home</NavLink>
           </li>
           <li className="lg:block">
             <NavLink to='/dashboard/addItem'>Add an Item</NavLink>
