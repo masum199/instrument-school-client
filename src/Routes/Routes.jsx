@@ -8,6 +8,7 @@ import Home from "../HomePage/Home/Home";
 import Login from "../Pages/Users/Login/Login";
 import Register from "../Pages/Users/Register/Register";
 import Instructors from "../Pages/Instructors/Instructors";
+import DashBoard from "../Layoutes/DashBoard";
 
 
 const router = createBrowserRouter([
@@ -31,9 +32,19 @@ const router = createBrowserRouter([
             {
                 path: 'instructors',
                 element:<Instructors></Instructors>
-            }
+            },
         ]
     },
+    {
+        path: 'dashboard',
+        element:<DashBoard></DashBoard>,
+        children:[
+            {
+                path:'instructor',
+                element:<Instructors></Instructors>
+            }
+        ]
+    }
 
 ]);
 

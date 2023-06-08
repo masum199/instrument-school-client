@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import canvaImage from '../../../assets/images/cool-background.png'
 import { BsGoogle } from 'react-icons/Bs';
 import { TbFidgetSpinner } from 'react-icons/tb'
+import { saveUser } from '../../../Hooks/auth';
 
 
 
@@ -26,6 +27,7 @@ const Register = () => {
                 const loggedUser = result.user
                 updateUserprofile(data.name, data.photoURL)
                 console.log(loggedUser)
+                saveUser(result.user)
                 navigate('/login')
             })
             .catch(err => {
@@ -38,8 +40,10 @@ const Register = () => {
     const handleGoogleSignIn = data =>{
         googleSignIn()
         .then(result => {
+            saveUser(result.user)
           const loggedUser = result.user
           console.log(loggedUser)
+          navigate('/')
         })
         .catch(err => {
           console.log(err.message)

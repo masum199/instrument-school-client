@@ -7,6 +7,7 @@ import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import { BsGoogle } from 'react-icons/Bs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TbFidgetSpinner } from 'react-icons/tb'
+import { saveUser } from '../../../Hooks/auth';
 
 const Login = () => {
   const { LogIn, googleSignIn, loading, setLoading } = useContext(AuthContext)
@@ -26,6 +27,7 @@ const Login = () => {
       
         const loggedUser = result.user
         console.log(loggedUser)
+        setLoading(false)
       })
       .catch(err => {
         setLoading(false)
@@ -39,9 +41,11 @@ const Login = () => {
   const handleGoogleSignIn = data =>{
     googleSignIn()
     .then(result => {
+      saveUser(result.user)
       navigate(from)
       const loggedUser = result.user
       console.log(loggedUser)
+      setLoading(false)
 
     })
     .catch(err => {

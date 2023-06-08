@@ -35,7 +35,10 @@ const NavBar = () => {
         <div className="flex md:order-2">
           {user && <img className='w-8 rounded-3xl lg:mx-4' src={user?.photoURL} alt="" />}
           {
-            (user ? <button onClick={handleLogout} className="btn btn-warning">Logout</button> : <Link to="/login"><button className="btn btn-success">Login</button></Link>)
+            user ? <>
+            <button onClick={handleLogout} className="btn btn-warning">Logout</button> </> : <>
+             <Link to="/login"><button className="btn btn-success">Login</button></Link>
+            </>
           }
           <button
             type="button"
@@ -75,9 +78,7 @@ const NavBar = () => {
             <li>
             Classes
             </li>
-            <li>
-            Dashboard 
-            </li>
+            <NavLink to='/dashboard' activeClassName='active'> <li>Dashboard </li></NavLink>
           </ul>
         </div>
       </div>
