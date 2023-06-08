@@ -6,12 +6,13 @@ import './Register.css'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import canvaImage from '../../../assets/images/cool-background.png'
 import { BsGoogle } from 'react-icons/Bs';
+import { TbFidgetSpinner } from 'react-icons/tb'
 
 
 
 const Register = () => {
     const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
-    const { CreateUser, updateUserprofile, googleSignIn } = useContext(AuthContext)
+    const { CreateUser, updateUserprofile, googleSignIn, loading, setLoading } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const password = watch('password', '')
@@ -29,6 +30,7 @@ const Register = () => {
             })
             .catch(err => {
                 console.log(err);
+                setLoading(false)
             })
 
     };
@@ -41,10 +43,10 @@ const Register = () => {
         })
         .catch(err => {
           console.log(err.message)
+          setLoading(false)
         })
         
       }
-
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -145,7 +147,7 @@ const Register = () => {
                             </div>
                             <p className='text-white'>Already Registered? <Link to='/login'>Please LogIn</Link></p>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Register</button>
+                                <button className="btn btn-primary">{ loading ? <TbFidgetSpinner size={24} className='animate-spin' /> : 'Register'}</button>
                             </div>
                         </form>
                     </div>

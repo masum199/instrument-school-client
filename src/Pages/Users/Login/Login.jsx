@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './Login.css'
 import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import { BsGoogle } from 'react-icons/Bs';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TbFidgetSpinner } from 'react-icons/tb'
 
 const Login = () => {
@@ -14,18 +14,24 @@ const Login = () => {
   const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/'
 
   const onLogin = data => {
     LogIn(data.email, data.password)
       .then(result => {
+        reset()
+        navigate(from)
         setErrorMessage('')
-      navigate('/')
+      
         const loggedUser = result.user
         console.log(loggedUser)
       })
       .catch(err => {
+        setLoading(false)
         console.error(err.message)
         setErrorMessage('Wrong User Or Password')
+        
       })
 
   }
@@ -33,7 +39,7 @@ const Login = () => {
   const handleGoogleSignIn = data =>{
     googleSignIn()
     .then(result => {
-      navigate('/')
+      navigate(from)
       const loggedUser = result.user
       console.log(loggedUser)
 
