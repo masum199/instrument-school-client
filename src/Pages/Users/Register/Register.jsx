@@ -5,12 +5,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import canvaImage from '../../../assets/images/cool-background.png'
+import { BsGoogle } from 'react-icons/Bs';
 
 
 
 const Register = () => {
     const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
-    const { CreateUser, updateUserprofile } = useContext(AuthContext)
+    const { CreateUser, updateUserprofile, googleSignIn } = useContext(AuthContext)
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const password = watch('password', '')
@@ -31,6 +32,19 @@ const Register = () => {
             })
 
     };
+
+    const handleGoogleSignIn = data =>{
+        googleSignIn()
+        .then(result => {
+          const loggedUser = result.user
+          console.log(loggedUser)
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+        
+      }
+
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -139,6 +153,14 @@ const Register = () => {
                 <div className="text-center lg:text-left text-white">
                     <h1 className="text-5xl font-bold">Join our community!!</h1>
                     <p className="py-6">Register and unlock new possibilities </p>
+                    <div className='text-center pt-10'>
+                <a onClick={handleGoogleSignIn} className="inline-flex overflow-hidden text-white bg-gray-900 rounded group">
+                  <span className="px-3.5 py-2 text-white bg-[#dc3545;]  flex items-center justify-center">
+                    <BsGoogle></BsGoogle>
+                  </span>
+                  <span className="pl-4 pr-5 py-2.5 bg-[#CC3333;]">Google +</span>
+                </a>
+              </div>
                 </div>
             </div>
         </div>

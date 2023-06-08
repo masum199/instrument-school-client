@@ -6,9 +6,10 @@ import './Login.css'
 import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import { BsGoogle } from 'react-icons/Bs';
 import { Link, useNavigate } from 'react-router-dom';
+import { TbFidgetSpinner } from 'react-icons/tb'
 
 const Login = () => {
-  const { LogIn, googleSignIn } = useContext(AuthContext)
+  const { LogIn, googleSignIn, loading, setLoading } = useContext(AuthContext)
   const [errorMessage, setErrorMessage] = useState('')
   const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
   const [showPassword, setShowPassword] = useState(false);
@@ -32,10 +33,13 @@ const Login = () => {
   const handleGoogleSignIn = data =>{
     googleSignIn()
     .then(result => {
+      navigate('/')
       const loggedUser = result.user
       console.log(loggedUser)
+
     })
     .catch(err => {
+      setLoading(false)
       console.log(err.message)
     })
     
@@ -86,7 +90,7 @@ const Login = () => {
                 </div>
                 <p className='text-white'>Don't Have an Account? <Link to='/register'>Register Now!!!</Link></p>
                 <div className="form-control mt-6">
-                  <button className="btn btn-success text-white">Login</button>
+                  <button className="btn btn-success text-white">{ loading ? <TbFidgetSpinner size={24} className='animate-spin' /> : 'Login'}  </button>
                 </div>
               </form>
               <div className='mt-10 text-center text-2xl'>

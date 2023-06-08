@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import logo from '../../assets/images/academy logo.jpg'
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import './NavBar.css'
 
 const NavBar = () => {
   const {user,logOut} = useContext(AuthContext)
@@ -20,15 +21,14 @@ const NavBar = () => {
   }
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="fixed z-10 w-full bg-white  border-gray-200 dark:bg-gray-900">
+      <div className="lg:mx-10 flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center">
           <img
             src={logo}
-            className="h-14 mr-3"
-            alt="Flowbite Logo"
+            className="h-14 rounded-3xl mr-3"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="self-center text-3xl font-semibold whitespace-nowrap text-warning ">
           Summer Hub
           </span>
         </a>
@@ -65,15 +65,13 @@ const NavBar = () => {
           } w-full md:flex md:w-auto md:order-1`}
           id="navbar-cta"
         >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <Link to='/'>
-            <li className='btn btn-active btn-primary'>
+          <ul className="flex text-black flex-col font-medium p-4 md:p-0 mt-4   md:flex-row md:space-x-8 md:mt-0 md:border-0">
+            <NavLink to='/' activeClassName='active'>
+            <li className=''>
                 Home
             </li>
-            </Link>
-            <li>
-            Instructors
-            </li>
+            </NavLink>
+            <NavLink to='/instructors' activeClassName='active'> <li>Instructors </li></NavLink>
             <li>
             Classes
             </li>

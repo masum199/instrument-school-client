@@ -35,10 +35,11 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
             setUser(loggedUser)
             setLoading(false)
+        })
             return () => {
                 unsubscribe()
             }
-        })
+      
     }, [])
 
     const logOut = () =>{
@@ -54,7 +55,9 @@ const AuthProvider = ({ children }) => {
         CreateUser,
         LogIn,
         googleSignIn,
-        logOut
+        logOut,
+        loading,
+        setLoading
     }
 
     return (

@@ -28,7 +28,7 @@ const Slide = () => {
   };
 
   return (
-    <div className="w-full px-8 featured-item bg-fixed">
+    <div className="w-full  px-14 featured-item">
       <Slider {...settings}>
         <div className="relative h-full w-full">
           <img

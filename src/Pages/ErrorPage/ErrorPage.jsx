@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useDebugValue } from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../../../public/Error.json';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,7 @@ const ErrorPage = () => {
   };
 
   return (
+
     <div className='boody'>
         <h2 className='text-white text-5xl text-center pt-10'>Oops! This Page is Having Technical Difficulties</h2>
      <div className='pt-10'>
