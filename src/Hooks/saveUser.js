@@ -5,7 +5,7 @@ export const saveUser = user => {
         email: user.email,
         name: user.displayName,
         photo: user.photoURL,
-        role: "Student"
+        role: user.role || "Student"
     }
 
     axios.put(`http://localhost:5000/users/${user?.email}`,currentUser) 
