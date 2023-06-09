@@ -48,6 +48,7 @@ const Slide = () => {
               <span className='text-4xl font-bold'><CountUp 
               end={20}
               duration={3}
+              redraw={3}
               />+</span><span className='text-2xl'>  Instructors</span>
               </div>
               <div>
@@ -79,7 +80,27 @@ const Slide = () => {
               <Fade delay={1e1} cascade damping={1e-1} className='text-5xl font-extrabold'>
                 Create Captivating Harmonies
               </Fade>
-              <Bounce><p className="text-lg">Compose and arrange your own masterpieces</p></Bounce>
+              <div className='flex flex-col lg:flex-row lg:mt-32 lg:gap-64'>
+              <div>
+              <span className='text-4xl font-bold'><CountUp 
+              end={20}
+              duration={3}
+              redraw={3}
+              />+</span><span className='text-2xl'>  Instructors</span>
+              </div>
+              <div>
+              <span className='text-4xl font-bold'><CountUp 
+              end={1000}
+              duration={3}
+              />+</span><span className='text-2xl'>  Students</span>
+              </div>
+              <div>
+              <span className='text-4xl font-bold'><CountUp 
+              end={30}
+              duration={3}
+              />+</span><span className='text-2xl'>  Classes</span>
+              </div>
+              </div>
             </div>
           </div>
         </div>

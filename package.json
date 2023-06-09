@@ -22,6 +22,7 @@
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.2.3",
     "react-awesome-slider": "^4.1.0",
+    "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
@@ -35,6 +36,7 @@
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.11",
+    "swiper": "^9.3.2",
     "tw-elements": "^1.0.0-beta2"
   },
   "devDependencies": {
