@@ -7,7 +7,7 @@ import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import { BsGoogle } from 'react-icons/Bs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TbFidgetSpinner } from 'react-icons/tb'
-import { saveUser } from '../../../Hooks/auth';
+import { saveUser } from '../../../Hooks/saveUser';
 
 const Login = () => {
   const { LogIn, googleSignIn, loading, setLoading } = useContext(AuthContext)

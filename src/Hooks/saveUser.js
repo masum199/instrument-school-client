@@ -3,6 +3,8 @@ import axios from "axios";
 export const saveUser = user => {
     const currentUser = {
         email: user.email,
+        name: user.displayName,
+        photo: user.photoURL,
         role: "Student"
     }
 

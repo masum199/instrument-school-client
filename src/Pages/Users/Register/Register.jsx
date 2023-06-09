@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import canvaImage from '../../../assets/images/cool-background.png'
 import { BsGoogle } from 'react-icons/Bs';
 import { TbFidgetSpinner } from 'react-icons/tb'
-import { saveUser } from '../../../Hooks/auth';
+import { saveUser } from '../../../Hooks/saveUser';
 
 
 
@@ -18,6 +18,7 @@ const Register = () => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const password = watch('password', '')
     const navigate = useNavigate()
+
 
 
     const onRegister = data => {
