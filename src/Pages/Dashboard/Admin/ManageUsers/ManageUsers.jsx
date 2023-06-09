@@ -1,8 +1,11 @@
 import React from 'react';
 import getUser from '../../../../Hooks/getUser';
+import useAdmin from '../../../../Hooks/useAdmin';
 
 const ManageUsers = () => {
     const [users] = getUser()
+    const [isAdmin] = useAdmin()
+    console.log('hello',isAdmin)
     return (
         <div>
 

@@ -1,9 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { AiOutlineFileAdd } from 'react-icons/ai';
 import { FaHome } from "react-icons/fa";
+import useAdmin from "../Hooks/useAdmin";
 
 
 const DashBoard = () => {
+  const [isAdmin] = useAdmin()
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox"className="drawer-toggle" />
@@ -29,12 +31,16 @@ const DashBoard = () => {
             <NavLink to='/dashboard/instructorclasses'><AiOutlineFileAdd/>My Classes</NavLink>
           </li>
           {/* admin route */}
-          <li className="lg:block">
+          {
+            isAdmin && <>
+            <li className="lg:block">
             <NavLink to='/dashboard/manageclass'><AiOutlineFileAdd/>Manage Classes</NavLink>
           </li>
           <li className="lg:block">
             <NavLink to='/dashboard/manageusers'><AiOutlineFileAdd/>Manage Users</NavLink>
           </li>
+            </>
+          }
 
 
           <div className="divider"></div>

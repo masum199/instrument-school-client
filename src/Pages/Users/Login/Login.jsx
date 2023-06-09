@@ -25,7 +25,6 @@ const Login = () => {
         reset()
         navigate(from)
         setErrorMessage('')
-        saveUser(result.user)
         const loggedUser = result.user
         console.log(loggedUser)
         setLoading(false)
