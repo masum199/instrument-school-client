@@ -11,6 +11,7 @@ import { saveUser } from '../../../Hooks/saveUser';
 
 
 
+
 const Register = () => {
     const { register, reset, handleSubmit, formState: { errors }, watch } = useForm();
     const { CreateUser, updateUserprofile, googleSignIn, loading, setLoading } = useContext(AuthContext)
@@ -22,21 +23,23 @@ const Register = () => {
 
 
     const onRegister = data => {
-        console.log(data)
         CreateUser(data.email, data.password)
             .then(result => {
+
                 const loggedUser = result.user
-                updateUserprofile(data.name, data.photoURL)
                 console.log(loggedUser)
-                saveUser(result.user)
+                updateUserprofile(data.name, data.photoURL)
+                .then(() => {
+                    saveUser(result.user)
                 navigate('/login')
+                })
             })
             .catch(err => {
                 console.log(err);
                 setLoading(false)
             })
 
-    };
+    }
 
     const handleGoogleSignIn = data =>{
         googleSignIn()

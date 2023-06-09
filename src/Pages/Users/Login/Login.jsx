@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { saveUser } from '../../../Hooks/saveUser';
 
+
 const Login = () => {
   const { LogIn, googleSignIn, loading, setLoading } = useContext(AuthContext)
   const [errorMessage, setErrorMessage] = useState('')
@@ -24,7 +25,7 @@ const Login = () => {
         reset()
         navigate(from)
         setErrorMessage('')
-      
+        saveUser(result.user)
         const loggedUser = result.user
         console.log(loggedUser)
         setLoading(false)
