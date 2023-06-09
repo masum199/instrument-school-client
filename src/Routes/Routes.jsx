@@ -8,9 +8,10 @@ import Home from "../HomePage/Home/Home";
 import Login from "../Pages/Users/Login/Login";
 import Register from "../Pages/Users/Register/Register";
 import DashBoard from "../Layoutes/DashBoard";
-import AddClass from "../Pages/Dashboard/Instructors/AddClass";
+
 import Instructors from "../Pages/Instructors/Instructors";
 import PrivateRoutes from "./PrivateRoutes";
+import AddClass from "../Pages/Dashboard/Instructors/AddClass/AddClass";
 
 
 const router = createBrowserRouter([

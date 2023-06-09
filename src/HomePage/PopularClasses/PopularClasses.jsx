@@ -24,7 +24,9 @@ const PopularClasses = () => {
           <SwiperSlide key={card._id}>
             <div className='my-10'>
             <img className='w-96 h-96' src={card.classImage} alt="" />
+            <div className=''>
             <h2>{card.name}</h2>
+            </div>
             </div>
           </SwiperSlide>
         ))}

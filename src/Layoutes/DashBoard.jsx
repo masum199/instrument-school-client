@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { AiOutlineFileAdd } from 'react-icons/ai';
 
 
 const DashBoard = () => {
@@ -13,36 +14,10 @@ const DashBoard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4">
           <li className="lg:block">
-            <NavLink to='/dashboard/addclass'> Admin Home</NavLink>
-          </li>
-          <li className="lg:block">
-            <NavLink to='/dashboard/addItem'>Add an Item</NavLink>
-          </li>
-          <li className="lg:block">
-            <NavLink to='/dashboard/manageitems'> Manage Items</NavLink>
-          </li>
-          <li className="lg:block">
-            <NavLink to='/dashboard/payment'> Manage Bookings</NavLink>
-          </li>
-          <li className="lg:block">
-            <NavLink to='/dashboard/allusers'> All Users</NavLink>
-          </li>
-          <li className="lg:hidden">
-            <NavLink to='/dashboard/userhome'> User Home</NavLink>
-          </li>
-          <li className="lg:hidden">
-            <NavLink to='/dashboard/reservation'> Reservation</NavLink>
-          </li>
-          <li className="lg:hidden">
-            <NavLink to='/dashboard/payment'> Payment History</NavLink>
-          </li>
-          <li className="lg:hidden">
-            <NavLink to='/dashboard/mycart'> My Cart</NavLink>
+            <NavLink to='/dashboard/addclass'><AiOutlineFileAdd/> Add Class</NavLink>
           </li>
           <div className="divider"></div>
-          <li><NavLink to='/'> Home</NavLink></li>
-          <li><NavLink to='/menu'>Our Menu</NavLink></li>
-          <li><NavLink to='/order/salad'>Order Food</NavLink></li>
+          <li><NavLink to='/'>  Home</NavLink></li>
         </ul>
       </div>
     </div>
