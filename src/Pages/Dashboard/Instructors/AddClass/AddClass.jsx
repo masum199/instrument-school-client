@@ -35,7 +35,7 @@ const AddClass = () => {
                     Swal.fire({  
                         position: 'top',
                         icon: 'success',
-                        title: 'Your work has been saved',
+                        title: 'class successfully uploaded',
                         showConfirmButton: false,
                         timer: 1500
                       })

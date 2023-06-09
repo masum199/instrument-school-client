@@ -25,6 +25,7 @@ const Login = () => {
         reset()
         navigate(from)
         setErrorMessage('')
+        saveUser(result.user)
         const loggedUser = result.user
         console.log(loggedUser)
         setLoading(false)
@@ -38,7 +39,7 @@ const Login = () => {
 
   }
 
-  const handleGoogleSignIn = data =>{
+  const handleGoogleSignIn = () =>{
     googleSignIn()
     .then(result => {
       saveUser(result.user)
