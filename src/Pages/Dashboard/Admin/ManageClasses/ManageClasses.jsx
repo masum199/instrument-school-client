@@ -31,7 +31,6 @@ const ManageClasses = () => {
         if (cla.status === 'approve') {
             return;
         }
-
         axios.patch(`http://localhost:5000/classes/approve/${cla._id}`).then((response) => {
             console.log(response.data);
             if (response.data.modifiedCount) {

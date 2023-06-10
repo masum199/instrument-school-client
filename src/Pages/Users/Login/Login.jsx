@@ -23,11 +23,10 @@ const Login = () => {
     LogIn(data.email, data.password)
       .then(result => {
         reset()
-        navigate(from)
+        navigate(from, {replace: true})
         setErrorMessage('')
         const loggedUser = result.user
         console.log(loggedUser)
-        setLoading(false)
       })
       .catch(err => {
         setLoading(false)

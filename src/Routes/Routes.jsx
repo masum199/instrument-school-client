@@ -17,6 +17,8 @@ import MySelectedClass from "../Pages/Dashboard/Student/MySelectedClass/MySelect
 import MyEnrolledClass from "../Pages/Dashboard/Student/MyEnrolledClass/MyEnrolledClass";
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
+import InstructorsHome from "../Pages/Instructors/InstructorsHome/InstructorsHome";
 
 
 const router = createBrowserRouter([
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
                 path:'instructorclasses',
                 element:<MyClasses></MyClasses>
             },
+            {
+                path:'instructorhome',
+                element:<InstructorsHome></InstructorsHome>
+            },
             // admin routes
             {
                 path:'manageclass',
@@ -72,6 +78,10 @@ const router = createBrowserRouter([
             {
                 path:'manageusers',
                 element:<ManageUsers></ManageUsers>
+            },
+            {
+                path:'adminhome',
+                element:<AdminHome></AdminHome>
             }
         ]
     }

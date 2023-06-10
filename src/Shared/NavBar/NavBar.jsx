@@ -3,11 +3,16 @@ import logo from '../../assets/images/academy logo.jpg'
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import { Link, NavLink } from 'react-router-dom';
 import './NavBar.css'
+import useStudent from '../../Hooks/useStudent';
+import useAdmin from '../../Hooks/useAdmin';
+import useInstructor from '../../Hooks/useInstructor';
 
 const NavBar = () => {
   const {user,logOut} = useContext(AuthContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isStudent] =  useStudent()
+  const [isAdmin] =  useAdmin()
+  const [isInstructor] = useInstructor()
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -78,7 +83,10 @@ const NavBar = () => {
             <li>
             Classes
             </li>
-            <NavLink to='/dashboard' activeClassName='active'> <li>Dashboard </li></NavLink>
+            {
+              isAdmin && <NavLink to='/dashboard/adminhome' activeClassName='active'> <li>Dashboard </li></NavLink> || isInstructor && <NavLink to='/dashboard/instructorhome' activeClassName='active'> <li>Dashboard </li></NavLink>
+               || isStudent && <NavLink to='/dashboard/studenthome' activeClassName='active'> <li>Dashboard </li></NavLink>
+            }
           </ul>
         </div>
       </div>

@@ -37,6 +37,9 @@ const DashBoard = () => {
          {
           isStudent && <>
            <li className="lg:block">
+            <NavLink to='/dashboard/studenthome'><AiOutlineFileAdd/> My Home</NavLink>
+          </li>
+           <li className="lg:block">
             <NavLink to='/dashboard/myselectedclass'><AiOutlineFileAdd/> My Selected Classes</NavLink>
           </li>
           <li className="lg:block">
@@ -48,6 +51,9 @@ const DashBoard = () => {
           {
             isInstructor && <>
             <li className="lg:block">
+            <NavLink to='/dashboard/instructorhome'><AiOutlineFileAdd/> My Home</NavLink>
+          </li>
+            <li className="lg:block">
             <NavLink to='/dashboard/addclass'><AiOutlineFileAdd/> Add Class</NavLink>
           </li>
           <li className="lg:block">
@@ -58,6 +64,9 @@ const DashBoard = () => {
           {/* admin route */}
           {
             isAdmin && <>
+            <li className="lg:block">
+            <NavLink to='/dashboard/adminhome'><AiOutlineFileAdd/>My Home</NavLink>
+          </li>
             <li className="lg:block">
             <NavLink to='/dashboard/manageclass'><AiOutlineFileAdd/>Manage Classes</NavLink>
           </li>
