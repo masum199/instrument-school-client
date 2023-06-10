@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import axios from "axios";
+import { AuthContext } from '../../../../Components/AuthProvider/AuthProvider';
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token
 
 const AddClass = () => {
+    const{user} = useContext(AuthContext)
     const { register, handleSubmit, reset} = useForm();
     const img_hosting_url= `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
     const status = "pending";
     const enrolled = 0
+    const feedback = ''
 
     const onSubmit = data => {
         const formData = new FormData()
@@ -25,7 +28,7 @@ const AddClass = () => {
            if(imgResponse.success){
             const imgURL = imgResponse.data.display_url
             const {name, instructorName, instructorEmail, availableSeats,price} = data
-            const newItem = {name, price:parseFloat(price), instructorName, instructorEmail,availableSeats, image:imgURL,status,enrolled}
+            const newItem = {name, price:parseFloat(price), instructorName, instructorEmail,availableSeats:parseFloat(availableSeats), image:imgURL,status,enrolled,feedback}
             console.log(newItem)
             axios.post('http://localhost:5000/classes', newItem)
             .then(data => {
@@ -44,6 +47,7 @@ const AddClass = () => {
            }
         })
     }
+    
     return (
 <div className="w-full px-10">
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,6 +65,7 @@ const AddClass = () => {
                         <span className="label-text">Instructor Name</span>
                     </label>
                     <input type="text"
+                    value={user?.displayName}
                     {...register("instructorName", { required: true })} placeholder="Instructor Name" className="input input-bordered w-full " />
                 </div>
                 <div className="form-control w-full ">
@@ -68,6 +73,7 @@ const AddClass = () => {
                         <span className="label-text font-semibold">Instructor Email</span>
                     </label>
                     <input type="email"
+                    value={user?.email}
                     {...register("instructorEmail", { required: true })} placeholder="Instructor Email" className="input input-bordered w-full " />
                 </div>
                 </div>
@@ -94,7 +100,7 @@ const AddClass = () => {
                     <input type="file" 
                     {...register("image", { required: true })} className="file-input file-input-bordered w-full " />
                 </div>
-                <input className="btn btn-sm mt-4" type="submit" value="Add Item" />
+                <input className="btn btn-block mt-4" type="submit" value="Add class" />
             </form >
         </div >
     );

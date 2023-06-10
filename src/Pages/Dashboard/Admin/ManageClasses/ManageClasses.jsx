@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import { useState } from 'react';
 import { FcApproval } from 'react-icons/fc';
 import { MdDoNotDisturb } from 'react-icons/md';
+import { BiMessageRoundedEdit } from 'react-icons/bi';
+
 import axios from 'axios';
 import useClasses from '../../../../Hooks/useClasses';
 
@@ -68,7 +70,7 @@ const ManageClasses = () => {
   };
 
   return (
-    <table className="min-w-full divide-y divide-gray-200">
+    <table className="min-w-full divide-y divide-gray-200 pr-6">
       <thead>
         <tr>
           <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -93,7 +95,10 @@ const ManageClasses = () => {
             Status
           </th>
           <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-            Action
+            Permit
+          </th>
+          <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            Feedback
           </th>
         </tr>
       </thead>
@@ -126,13 +131,20 @@ const ManageClasses = () => {
                 </div>
               ) : (
                 <span className="text-gray-500">
+                  <p className='flex justify-center'>
                   <p>
                   {cla.status === 'approved' && <FcApproval className="text-5xl" />}
                   </p>
-                  {cla.status === 'denied' && <MdDoNotDisturb className="text-5xl" />}
+                  </p>
+                  <p className='flex justify-center'>
+                    <p>
+                    {cla.status === 'denied' && <MdDoNotDisturb className="text-5xl" />}
+                    </p>
+                  </p>
                 </span>
               )}
             </td>
+            <td className="px-6 py-4 whitespace-nowrap text-4xl"><BiMessageRoundedEdit/></td>
           </tr>
         ))}
       </tbody>

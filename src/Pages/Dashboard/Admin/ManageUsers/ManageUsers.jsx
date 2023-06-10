@@ -128,9 +128,9 @@ const ManageUsers = () => {
                 </div>
               ) : (
                 <span className="text-gray-500">
-                  {user.role === 'Admin' && <AiOutlineCrown className='text-5xl'/>}
-                  {user.role === 'Instructor' && <FaChalkboardTeacher className='text-5xl'/>}
-                  {user.role === 'Student' && <GiGraduateCap className='text-5xl'/>}
+                  {user.role === 'Admin' && <AiOutlineCrown className='text-5xl lg:ml-6'/>}
+                  {user.role === 'Instructor' && <FaChalkboardTeacher className='text-5xl lg:ml-6'/>}
+                  {user.role === 'Student' && <GiGraduateCap className='text-5xl lg:ml-6'/>}
                 </span>
               )}
             </td>
