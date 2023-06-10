@@ -1,10 +1,15 @@
-import React from 'react';
+
 
 const MyClasses = () => {
+
+
+
+
+
     return (
-        <div>
-            instructor classes
-        </div>
+      <div>
+        mu cls
+      </div>
     );
 };
 

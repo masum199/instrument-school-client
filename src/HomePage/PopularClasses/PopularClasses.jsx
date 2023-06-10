@@ -5,9 +5,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
+import { useState } from 'react';
+import usePending from '../../Hooks/usePending';
 
 
 const PopularClasses = () => {
+  const [pending] = usePending()
+  console.log(pending)
     const [classes] = useClasses()
     console.log(classes)
     return (
@@ -21,7 +25,8 @@ const PopularClasses = () => {
     >
       <div className="swiper-wrapper">
         {classes.map((card) => (
-          <SwiperSlide key={card._id}>
+          <SwiperSlide key={card._id}
+          >
             <div className='my-10'>
             <img className='w-96 h-96' src={card.classImage} alt="" />
             <div className=''>
