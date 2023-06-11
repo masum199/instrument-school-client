@@ -19,7 +19,7 @@ const MyClasses = () => {
               <div key={myclass._id} className="">
                 <div>
                   <div className="card w-96 bg-base-100 shadow-xl">
-                    <figure><img className="h-80 w-96" src={myclass.image} alt="Shoes" /></figure>
+                    <figure><img className="h-80 w-96" src={myclass.classImage} alt="Shoes" /></figure>
                     <div className="card-body">
                       <div className="flex gap-52 items-center">
                         <h2 className="card-title">

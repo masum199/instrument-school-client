@@ -1,9 +1,10 @@
 import React from 'react';
-import useDescending from '../../Hooks/useDescending';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
+import useClasses from '../../Hooks/useClasses';
 const PopularInstructors = () => {
-    const [descending] = useDescending()
+const [classes] = useClasses()
     return (
         <div className='my-10 lg:ml-14'>
         <Swiper
@@ -14,7 +15,7 @@ const PopularInstructors = () => {
    className="mySwiper"
  >
    <div className="swiper-wrapper">
-     {descending.map((card) => (
+     {classes.map((card) => (
        <SwiperSlide key={card._id}
        >
          <div className='my-10'>

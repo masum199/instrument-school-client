@@ -71,7 +71,7 @@ const ManageClasses = () => {
     };
 
 
-   
+
 
 
 
@@ -94,42 +94,42 @@ const ManageClasses = () => {
     const handleOpenModal = (cla) => {
         setIsOpen(true);
         setEditingClass(cla);
-      };
+    };
 
-      const handleFeedback = (e) => {
+    const handleFeedback = (e) => {
         e.preventDefault();
         if (editingClass) {
-          const id = editingClass._id;
-          const form = e.target;
-          const feedback = form.textarea.value;
-          const newFeedback = { feedback };
-          axios.put(`http://localhost:5000/classes/feedback/${id}`, newFeedback)
-            .then(data => {
-              console.log(data.data);
-              if(data.data.modifiedCount){
-                Swal.fire({  
-                    position: 'top',
-                    icon: 'success',
-                    title: 'class successfully uploaded',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-                  handleCloseModal(true)
-              }
+            const id = editingClass._id;
+            const form = e.target;
+            const feedback = form.textarea.value;
+            const newFeedback = { feedback };
+            axios.put(`http://localhost:5000/classes/feedback/${id}`, newFeedback)
+                .then(data => {
+                    console.log(data.data);
+                    if (data.data.modifiedCount) {
+                        Swal.fire({
+                            position: 'top',
+                            icon: 'success',
+                            title: 'class successfully uploaded',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        handleCloseModal(true)
+                    }
 
-            })
-            .catch(error => {
-              console.log(error);
-            });
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
-      };
-     
-    
-      const handleCloseModal = () => {
+    };
+
+
+    const handleCloseModal = () => {
         setIsOpen(false);
         setEditingClass(null);
-        setFeedbackClass(null); 
-      };
+        setFeedbackClass(null);
+    };
 
     return (
         <>
@@ -169,43 +169,51 @@ const ManageClasses = () => {
                     {classes.map((cla) => (
                         <tr key={cla._id}>
                             <td className="px-6 py-4 whitespace-nowrap">
-                                <img src={cla.image} alt={cla.name} className="h-12 w-14 rounded-full" />
+                                <img src={cla.classImage} alt={cla.name} className="h-12 w-14 rounded-full" />
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">{cla.name}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{cla.instructorName}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{cla.instructorEmail}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{cla.availableSeats}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{cla.price}</td>
-                            <td className="px-6 py-4 whitespace-nowrap">{cla.status}</td>
+                            <td className={cla.status == "approved" && " whitespace-nowrap btn btn-success mt-4" || cla.status == "pending" && "px-5 mt-4 whitespace-nowrap btn btn-warning" || "px-7 whitespace-nowrap btn btn-error mt-4"}>{cla.status}</td>
                             <td className="px-6 py-4 whitespace-nowrap">
-                                {!isPermitted(cla._id) ? (
-                                    <div className="dropdown dropdown-left">
-                                        <label tabIndex={0} className="btn m-1">
-                                            permission
-                                        </label>
-                                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                            <li className="btn btn-sm" onClick={() => handleApprove(cla)}>
-                                                {getPermitIcon('approve')} approve
-                                            </li>
-                                            <li className="btn btn-sm" onClick={() => handleDeny(cla)}>
-                                                {getPermitIcon('deny')} deny
-                                            </li>
-                                        </ul>
-                                    </div>
-                                ) : (
-                                    <span className="text-gray-500">
-                                        <div className='flex justify-center'>
-                                            <div>
-                                                {cla.status === 'approved' && <FcApproval className="text-5xl" />}
+
+                                {
+                                    cla.status === 'approved' ? (
+                                        <span className="text-gray-500">
+                                            <div className='flex justify-center'>
+                                                <div>
+                                                    <FcApproval className="text-5xl" />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className='flex justify-center'>
-                                            <div>
-                                                {cla.status === 'denied' && <MdDoNotDisturb className="text-5xl" />}
+                                        </span>
+                                    ) : (
+                                        !isPermitted(cla._id) ? (
+                                            <div className="dropdown dropdown-left">
+                                                <label tabIndex={0} className="btn m-1">
+                                                    permission
+                                                </label>
+                                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                                                    <li className="btn btn-sm" onClick={() => handleApprove(cla)}>
+                                                        {getPermitIcon('approve')} approve
+                                                    </li>
+                                                    <li className="btn btn-sm" onClick={() => handleDeny(cla)}>
+                                                        {getPermitIcon('deny')} deny
+                                                    </li>
+                                                </ul>
                                             </div>
-                                        </div>
-                                    </span>
-                                )}
+                                        ) : (
+                                            <span className="text-gray-500">
+                                                <div className='flex justify-center'>
+                                                    <div>
+                                                        {cla.status === 'denied' && <MdDoNotDisturb className="text-5xl" />}
+                                                    </div>
+                                                </div>
+                                            </span>
+                                        )
+                                    )
+                                }
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-4xl">
                                 <BiMessageRoundedEdit onClick={() => handleOpenModal(cla)} />
@@ -221,17 +229,17 @@ const ManageClasses = () => {
                     <ModalHeader>send Your Feedback To Instructor</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
-                    <form onSubmit={handleFeedback}>
-                        <FormControl mt={4}>
-                            <FormLabel>Send Feedback</FormLabel>
-                            <textarea name='textarea'  className="textarea textarea-accent w-96 h-32" placeholder="Send Feedback"></textarea>
-                            <ModalFooter>
-                                <input type="submit" className='btn btn-outline btn-success' value="Send" />
-                                <Button onClick={handleCloseModal} className='btn btn-outline btn-warning ml-10'>
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </Button>
-                            </ModalFooter>
-                        </FormControl>
+                        <form onSubmit={handleFeedback}>
+                            <FormControl mt={4}>
+                                <FormLabel>Send Feedback</FormLabel>
+                                <textarea name='textarea' className="textarea textarea-accent w-96 h-32" placeholder="Send Feedback"></textarea>
+                                <ModalFooter>
+                                    <input type="submit" className='btn btn-outline btn-success' value="Send" />
+                                    <Button onClick={handleCloseModal} className='btn btn-outline btn-warning ml-10'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                    </Button>
+                                </ModalFooter>
+                            </FormControl>
 
                         </form>
                     </ModalBody>

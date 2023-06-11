@@ -107,7 +107,7 @@ const ManageUsers = () => {
             </td>
             <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
             <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
-            <td className="px-6 py-4 whitespace-nowrap">{user.role}</td>
+            <td className={user.role == "Admin" && "px-9 whitespace-nowrap btn btn-success mt-4" || user.role == "Instructor" && "mt-4 whitespace-nowrap btn btn-warning" || "px-7 whitespace-nowrap btn btn-error mt-4"}>{user.role}</td>
             <td className="px-6 py-4 whitespace-nowrap">
               {!isPromoted(user._id) ? (
                 <div className="dropdown dropdown-left">
