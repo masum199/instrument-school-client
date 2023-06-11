@@ -1,8 +1,33 @@
 import React from 'react';
 import useBookings from '../../../../Hooks/useBookings';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 const MySelectedClass = () => {
     const [bookings] = useBookings()
+
+
+    const handleDelete = (_id) => {
+        const proceed = window.confirm("Are you sure you want to delete");
+        if (proceed) {
+          axios.delete(`http://localhost:5000/bookings/delete/${_id}`)
+            .then(response =>  {
+                console.log(response.data)
+                if (response.data.deletedCount > 0) {
+                    Swal.fire({
+                      title: "Success",
+                      text: "You have successfully deleted the Class!",
+                      icon: "success",
+                      toast: true,
+                      position: "top",
+                      showConfirmButton: false,
+                      timer: 2000,
+                      timerProgressBar: true,
+                    });
+                  }
+        })
+      };
+    }
     return (
         <>
         <table className="min-w-full divide-y divide-gray-200 pr-6">
@@ -35,7 +60,7 @@ const MySelectedClass = () => {
                 {bookings.map((cla) => (
                     <tr key={cla._id}>
                         <td className="px-6 py-4 whitespace-nowrap">
-                            <RiDeleteBin5Fill className='text-4xl text-red-700  '/>
+                            <RiDeleteBin5Fill onClick={()=>handleDelete(cla._id)} className='text-4xl text-red-700  '/>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                             <img src={cla.classImage}  className="h-12 w-14 rounded-full" />
