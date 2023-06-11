@@ -80,9 +80,7 @@ const NavBar = () => {
             </li>
             </NavLink>
             <NavLink to='/instructors' activeClassName='active'> <li>Instructors </li></NavLink>
-            <li>
-            Classes
-            </li>
+            <NavLink to='/classes' activeClassName='active'> <li>Classes </li></NavLink>
             {
               isAdmin && <NavLink to='/dashboard/adminhome' activeClassName='active'> <li>Dashboard </li></NavLink> || isInstructor && <NavLink to='/dashboard/instructorhome' activeClassName='active'> <li>Dashboard </li></NavLink>
                || isStudent && <NavLink to='/dashboard/studenthome' activeClassName='active'> <li>Dashboard </li></NavLink>

@@ -18,7 +18,8 @@ import MyEnrolledClass from "../Pages/Dashboard/Student/MyEnrolledClass/MyEnroll
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ManageUsers from "../Pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
-import InstructorsHome from "../Pages/Instructors/InstructorsHome/InstructorsHome";
+import InstructorHome from "../Pages/Dashboard/Instructors/InstructorHome/InstructorHome";
+import Classes from "../Pages/Classes/Classes";
 
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: 'instructors',
                 element:<Instructors></Instructors>
+            },
+            {
+                path: 'classes',
+                element:<Classes></Classes>
             },
         ]
     },
@@ -68,7 +73,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'instructorhome',
-                element:<InstructorsHome></InstructorsHome>
+                element:<InstructorHome></InstructorHome>
             },
             // admin routes
             {
