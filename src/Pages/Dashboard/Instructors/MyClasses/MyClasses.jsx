@@ -29,8 +29,8 @@ const MyClasses = () => {
                       </div>
                       <div className="h-28">
                         {
-                          myclass.status === "denied" ? <Fade>{myclass.feedback}
-                          </Fade> : ""
+                          myclass.status === "denied" && <Fade>{myclass.feedback}
+                          </Fade> ||myclass.status === "approved" && <Fade>{myclass.feedback}</Fade>
                         }
                       </div>
                       <div className="card-actions justify-between">

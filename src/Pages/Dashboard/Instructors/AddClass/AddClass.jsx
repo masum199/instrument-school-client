@@ -28,7 +28,7 @@ const AddClass = () => {
            if(imgResponse.success){
             const imgURL = imgResponse.data.display_url
             const {name, instructorName, instructorEmail, availableSeats,price} = data
-            const newItem = {name, price:parseFloat(price), instructorName, instructorEmail,availableSeats:parseFloat(availableSeats), image:imgURL,status,enrolled,feedback}
+            const newItem = {name, price:parseFloat(price), instructorName, instructorEmail,availableSeats:parseFloat(availableSeats), classImage:imgURL,status,enrolled,feedback}
             console.log(newItem)
             axios.post('http://localhost:5000/classes', newItem)
             .then(data => {

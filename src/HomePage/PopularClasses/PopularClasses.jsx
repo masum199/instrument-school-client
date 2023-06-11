@@ -1,19 +1,18 @@
 
-import useClasses from '../../Hooks/useClasses';
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination } from "swiper";
-import { useState } from 'react';
-import usePending from '../../Hooks/usePending';
+import useDescending from "../../Hooks/useDescending";
+
+
 
 
 const PopularClasses = () => {
-  const [pending] = usePending()
-  console.log(pending)
-    const [classes] = useClasses()
-    console.log(classes)
+   const [descending] = useDescending()
+   console.log(descending);
     return (
         <div className='my-10 lg:ml-14'>
            <Swiper
@@ -24,7 +23,7 @@ const PopularClasses = () => {
       className="mySwiper"
     >
       <div className="swiper-wrapper">
-        {classes.map((card) => (
+        {descending.map((card) => (
           <SwiperSlide key={card._id}
           >
             <div className='my-10'>
