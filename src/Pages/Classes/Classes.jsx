@@ -2,11 +2,9 @@ import React from 'react';
 import useClasses from '../../Hooks/useClasses';
 import useAdmin from '../../Hooks/useAdmin';
 import useInstructor from '../../Hooks/useInstructor';
-import { useState } from 'react';
 
 
 const Classes = () => {
-    const {disabled, setDisabled} = useState(true)
     const [isAdmin] = useAdmin()
     const [isInstructor] = useInstructor()
     const [classes] = useClasses()
@@ -34,7 +32,7 @@ const Classes = () => {
                             <p className="text-2xl text-white font-bold">${card.price}</p>
                         </div>
                     </div>
-                    <button disabled={isAdmin ? disabled : ''}  className="btn btn-active btn-accent mt-8 mb-4 px-6 py-2 rounded-full text-lg font-bold">Select Course</button>
+                    <button disabled={isAdmin || isInstructor}  className="btn btn-active btn-accent mt-8 mb-4 px-6 py-2 rounded-full text-lg font-bold">Select Course</button>
                 </div>
             </div>
         ))}
