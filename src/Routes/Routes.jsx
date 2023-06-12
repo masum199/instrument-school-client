@@ -21,6 +21,7 @@ import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
 import InstructorHome from "../Pages/Dashboard/Instructors/InstructorHome/InstructorHome";
 import Classes from "../Pages/Classes/Classes";
 import StudentHome from "../Pages/Dashboard/Student/StudentHome/StudentHome";
+// import Payment from "../Pages/Dashboard/Student/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
                 path:'studenthome',
                 element:<StudentHome></StudentHome>
             },
+            // {
+            //     path: 'payment',
+            //     element:<Payment></Payment>
+            // },
             // instructor
             {
                 path:'addclass',

@@ -113,10 +113,30 @@ const Slide = () => {
           <div className="absolute inset-0 grid  h-full w-full place-items-center bg-black/75">
             <div className="w-3/4 text-center md:w-2/4 text-white">
 
-              <Fade delay={1e1} cascade damping={1e-1} className='text-5xl font-extrabold'>
-                Feel the Beat
+            <Fade delay={1e1} cascade damping={1e-1} className='text-5xl font-extrabold'>
+                Feel The Beat
               </Fade>
-              <Bounce><p className="text-lg">Immerse yourself in the pulse of music</p></Bounce>
+              <div className='flex flex-col lg:flex-row lg:mt-32 lg:gap-64'>
+              <div>
+              <span className='text-4xl font-bold'><CountUp 
+              end={20}
+              duration={3}
+              redraw={3}
+              />+</span><span className='text-2xl'>  Instructors</span>
+              </div>
+              <div>
+              <span className='text-4xl font-bold'><CountUp 
+              end={1000}
+              duration={3}
+              />+</span><span className='text-2xl'>  Students</span>
+              </div>
+              <div>
+              <span className='text-4xl font-bold'><CountUp 
+              end={30}
+              duration={3}
+              />+</span><span className='text-2xl'>  Classes</span>
+              </div>
+              </div>
             </div>
           </div>
         </div>

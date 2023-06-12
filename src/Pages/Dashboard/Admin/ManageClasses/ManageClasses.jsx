@@ -191,7 +191,7 @@ const ManageClasses = () => {
                                     ) : (
                                         !isPermitted(cla._id) ? (
                                             <div className="dropdown dropdown-left">
-                                                <label tabIndex={0} className="btn m-1">
+                                                <label tabIndex={0} className="btn m-1 inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%]  px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                                                     permission
                                                 </label>
                                                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">

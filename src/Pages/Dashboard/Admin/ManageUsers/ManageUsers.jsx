@@ -107,18 +107,18 @@ const ManageUsers = () => {
             </td>
             <td className="px-6 py-4 whitespace-nowrap">{user.name}</td>
             <td className="px-6 py-4 whitespace-nowrap">{user.email}</td>
-            <td className={user.role == "Admin" && "px-9 whitespace-nowrap btn btn-success mt-4" || user.role == "Instructor" && "mt-4 whitespace-nowrap btn btn-warning" || "px-7 whitespace-nowrap btn btn-error mt-4"}>{user.role}</td>
+            <td className={user.role == "Admin" && "px-9 whitespace-nowrap btn btn-success mt-4" || user.role == "Instructor" && "mt-4 whitespace-nowrap btn btn-warning" || "  px-7 whitespace-nowrap btn btn-error mt-4"}>{user.role}</td>
             <td className="px-6 py-4 whitespace-nowrap">
               {!isPromoted(user._id) ? (
-                <div className="dropdown dropdown-left">
-                  <label tabIndex={0} className="btn m-1">
+                <div className="dropdown dropdown-left ">
+                  <label tabIndex={0} className="btn m-1 inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%]  px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                     Promote To
                   </label>
                   <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li className="btn btn-sm" onClick={() => makeAdmin(user)}>
                       {getRoleIcon('Admin')} Admin
                     </li>
-                    <li className="btn btn-sm" onClick={() => makeInstructor(user)}>
+                    <li className="btn btn-sm my-4" onClick={() => makeInstructor(user)}>
                       {getRoleIcon('Instructor')} Instructor
                     </li>
                     <li className="btn btn-sm" onClick={() => makeStudent(user)}>
