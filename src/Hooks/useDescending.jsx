@@ -5,7 +5,7 @@ const useDescending = () => {
     const {data: descending = [],isLoading: loading, refetch} = useQuery({
         queryKey: ['descending'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/classes/descending')
+            const res = await fetch('https://school-server-side.vercel.app/classes/descending')
             return res.json()
         }
     })

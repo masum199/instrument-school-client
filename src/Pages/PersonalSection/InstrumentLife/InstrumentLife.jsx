@@ -2,15 +2,14 @@ import React from 'react';
 
 const InstrumentLife = () => {
     return (
-        <div className='lg:mx-12'>
+        <div className='lg:mx-14 lg:mr-20'>
             <div className="bg-black text-white py-20  ">
 		<div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
 			<div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
-				<h1 className="text-3xl md:text-5xl p-2 text-yellow-300 tracking-loose">TechFest</h1>
-				<h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">Space : The Timeless Infinity
+				<h1 className="text-3xl md:text-5xl p-2 text-yellow-300 tracking-loose">Instrument Life</h1>
+				<h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">Discover the Melodies Within
 				</h2>
-				<p className="text-sm md:text-base text-gray-50 mb-4">Explore your favourite events and
-					register now to showcase your talent and win exciting prizes.</p>
+				<p className="text-sm md:text-base text-gray-50 mb-4">Explore a wide range of musical instruments and unleash your inner musician. From guitars and pianos to drums and saxophones, we have everything you need to create beautiful melodies and express your musical talents</p>
 				<a href="#"
 					className="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">
 					Explore Now</a>

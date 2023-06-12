@@ -10,7 +10,7 @@ const useInstructor = () => {
         queryKey: ['isInstructor'],
         enabled: !loading,
         queryFn: async () => {
-            const response = await axios.get(`http://localhost:5000/users/instructor/${user?.email}`);
+            const response = await axios.get(`https://school-server-side.vercel.app/users/instructor/${user?.email}`);
 
             return response.data.instructor;
         }

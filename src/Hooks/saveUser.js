@@ -8,8 +8,8 @@ export const saveUser = user => {
         role: "Student"
     }
 
-    axios.put(`http://localhost:5000/users/${user?.email}`,currentUser) 
-    .then(data =>{
-        console.log(data.data)
-    })
+    axios.put(`https://school-server-side.vercel.app/users/${user?.email}`, currentUser)
+        .then(data => {
+            console.log(data.data)
+        })
 }

@@ -31,7 +31,7 @@ const ManageClasses = () => {
         if (cla.status === 'approve') {
             return;
         }
-        axios.patch(`http://localhost:5000/classes/approve/${cla._id}`).then((response) => {
+        axios.patch(`https://school-server-side.vercel.app/classes/approve/${cla._id}`).then((response) => {
             console.log(response.data);
             if (response.data.modifiedCount) {
                 refetch();
@@ -53,7 +53,7 @@ const ManageClasses = () => {
             return;
         }
 
-        axios.patch(`http://localhost:5000/classes/deny/${cla._id}`).then((response) => {
+        axios.patch(`https://school-server-side.vercel.app/classes/deny/${cla._id}`).then((response) => {
             console.log(response.data);
             if (response.data.modifiedCount) {
                 refetch();
@@ -103,7 +103,7 @@ const ManageClasses = () => {
             const form = e.target;
             const feedback = form.textarea.value;
             const newFeedback = { feedback };
-            axios.put(`http://localhost:5000/classes/feedback/${id}`, newFeedback)
+            axios.put(`https://school-server-side.vercel.app/classes/feedback/${id}`, newFeedback)
                 .then(data => {
                     console.log(data.data);
                     if (data.data.modifiedCount) {

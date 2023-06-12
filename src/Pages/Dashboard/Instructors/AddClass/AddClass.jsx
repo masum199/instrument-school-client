@@ -16,7 +16,7 @@ const AddClass = () => {
             const {name,image,classImage, instructorName, instructorEmail, availableSeats,price} = data
             const newItem = {name,image, price:parseFloat(price), instructorName, instructorEmail,availableSeats:parseFloat(availableSeats), classImage,status,enrolled,feedback}
             console.log(newItem)
-            axios.post('http://localhost:5000/classes', newItem)
+            axios.post('https://school-server-side.vercel.app/classes', newItem)
             .then(data => {
                 console.log(data.data)
                 if(data.data.insertedId){

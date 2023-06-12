@@ -5,7 +5,7 @@ const useBookings = () => {
     const {data: bookings = [],isLoading: loading, refetch} = useQuery({
         queryKey: ['bookings'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/bookings')
+            const res = await fetch('https://school-server-side.vercel.app/bookings')
             return res.json()
         }
     })

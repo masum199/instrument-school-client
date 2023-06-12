@@ -21,7 +21,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
     <QueryClientProvider client={queryClient}>
    <ChakraProvider>
+   <div className=''>
    <RouterProvider router={router}></RouterProvider>
+   </div>
    </ChakraProvider>
     </QueryClientProvider>
     </AuthProvider>

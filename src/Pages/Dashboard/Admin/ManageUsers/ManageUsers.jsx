@@ -11,7 +11,7 @@ const ManageUsers = () => {
   const [promotedUsers, setPromotedUsers] = useState([]);
 
   const makeAdmin = (user) => {
-    axios.patch(`http://localhost:5000/users/admin/${user._id}`).then((response) => {
+    axios.patch(`https://school-server-side.vercel.app/users/admin/${user._id}`).then((response) => {
       console.log(response.data);
       if (response.data.modifiedCount) {
         refetch();
@@ -28,7 +28,7 @@ const ManageUsers = () => {
   };
 
   const makeInstructor = (user) => {
-    axios.patch(`http://localhost:5000/users/instructor/${user._id}`).then((response) => {
+    axios.patch(`https://school-server-side.vercel.app/users/instructor/${user._id}`).then((response) => {
       console.log(response.data);
       if (response.data.modifiedCount) {
         refetch();
@@ -45,7 +45,7 @@ const ManageUsers = () => {
   };
 
   const makeStudent = (user) => {
-    axios.patch(`http://localhost:5000/users/student/${user._id}`).then((response) => {
+    axios.patch(`https://school-server-side.vercel.app/users/student/${user._id}`).then((response) => {
       console.log(response.data);
       if (response.data.modifiedCount) {
         refetch();

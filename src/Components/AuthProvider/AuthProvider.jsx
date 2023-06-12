@@ -37,7 +37,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             setLoading(false)
             // if (currentUser) {
-            //     axios.post('http://localhost:5000/jwt', {
+            //     axios.post('https://school-server-side.vercel.app/jwt', {
             //         email: currentUser?.email
             //     })
             //         .then(data => {

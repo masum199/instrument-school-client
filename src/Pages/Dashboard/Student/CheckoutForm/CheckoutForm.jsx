@@ -17,7 +17,7 @@ const CheckoutForm = ({price}) => {
 
   useEffect(() => {
     if(price){
-        axios.post('http://localHost:5000/create-payment-intent', {price: price})
+        axios.post('https://school-server-side.vercel.app/create-payment-intent', {price: price})
         .then(res=>{
             console.log(res.data.clientSecret);
             setClientSecret(res.data.clientSecret)

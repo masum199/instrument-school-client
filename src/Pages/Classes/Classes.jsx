@@ -28,7 +28,7 @@ const Classes = () => {
             });
             return navigate('/login')
           }
-          const response = await axios.patch('http://localhost:5000/bookings', {
+          const response = await axios.patch('https://school-server-side.vercel.app/bookings', {
             id:card._id,
             classImage: card.classImage,
             instructorEmail:card.instructorEmail,

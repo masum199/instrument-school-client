@@ -11,7 +11,7 @@ const MySelectedClass = () => {
     const handleDelete = (_id) => {
         const proceed = window.confirm("Are you sure you want to delete");
         if (proceed) {
-          axios.delete(`http://localhost:5000/bookings/delete/${_id}`)
+          axios.delete(`https://school-server-side.vercel.app/bookings/delete/${_id}`)
             .then(response =>  {
                 console.log(response.data)
                 if (response.data.deletedCount > 0) {
