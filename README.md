@@ -6,5 +6,6 @@
 #The popular instructors section showcases renowned instructors and their profiles.
 #The instrument life section provides information and resources related to the life of musical instruments.
 #The website has a toggle functionality to switch between a cool dark background and a clean white background.
+#used react hook form,,tanstack,,and axios
 
 #live  websites  link:::https://school-client-b9e18.web.app/
