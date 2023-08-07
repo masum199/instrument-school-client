@@ -1,0 +1,17 @@
+.background-imagee{
+    background-image: url('https://images.pexels.com/photos/9709408/pexels-photo-9709408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+}
+
+.bg-style-infoo {
+    background-color: rgba(25, 24, 24, 0.885);
+    border-radius: 10px;
+    padding: 70px;
+    box-shadow: 0px 0px 5px rgba(4, 4, 4, 0.2);
+    height: 600px;
+    margin-bottom: 160px;
+    width: 450px; 
+  }

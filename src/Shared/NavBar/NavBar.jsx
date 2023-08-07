@@ -6,8 +6,9 @@ import './NavBar.css'
 import useStudent from '../../Hooks/useStudent';
 import useAdmin from '../../Hooks/useAdmin';
 import useInstructor from '../../Hooks/useInstructor';
+import {  BsFillMoonStarsFill, BsSunFill } from 'react-icons/bs';
 
-const NavBar = () => {
+const NavBar = ({ darkMode, onToggleDarkMode }) => {
   const {user,logOut} = useContext(AuthContext)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isStudent] =  useStudent()
@@ -26,23 +27,26 @@ const NavBar = () => {
   }
 
   return (
-    <nav className="fixed z-10 w-full bg-white  border-gray-200 dark:bg-gray-900">
+    <nav className="fixed z-10 w-full mode-toggle">
       <div className="lg:mx-10 flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center">
           <img
             src={logo}
-            className="h-14 rounded-3xl mr-3"
+            className="h-14 rounded-3xl mr-3 hidden nav-logo"
           />
-          <span className="self-center text-3xl font-semibold whitespace-nowrap text-warning ">
-          Summer Hub
+          <span className="self-center heading font-semibold whitespace-nowrap text-warning ">
+          SummerHub
           </span>
+          <div className='mode-toggle mx-2 text-2xl btn-mode' onClick={onToggleDarkMode}>
+                {darkMode ? <BsSunFill/> : <BsFillMoonStarsFill/>}
+            </div>
         </a>
-        <div className="flex md:order-2">
-          {user && <img className='w-8 rounded-3xl lg:mx-4' src={user?.photoURL} alt="" />}
+        <div className="flex md:order-2 nav-flex">
+          {user && <img className=' mx-4 user-pic' src={user?.photoURL} alt="" />}
           {
             user ? <>
-            <button onClick={handleLogout} className="btn btn-warning">Logout</button> </> : <>
-             <Link to="/login"><button className="btn btn-success">Login</button></Link>
+            <button onClick={handleLogout} className="btn  btn-fix">Logout</button> </> : <>
+             <Link to="/login"><button className="btn btn-fix">Login</button></Link>
             </>
           }
           <button
@@ -73,7 +77,7 @@ const NavBar = () => {
           } w-full md:flex md:w-auto md:order-1`}
           id="navbar-cta"
         >
-          <ul className="flex text-black flex-col font-medium p-4 md:p-0 mt-4   md:flex-row md:space-x-8 md:mt-0 md:border-0">
+          <ul className="flex mode-toggle flex-col font-medium p-4 md:p-0 mt-4   md:flex-row md:space-x-8 md:mt-0 md:border-0">
             <NavLink to='/' activeClassName='active'>
             <li className=''>
                 Home

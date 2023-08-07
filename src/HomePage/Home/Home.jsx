@@ -3,33 +3,23 @@ import Slider from '../Slider/Slider';
 import PopularClasses from '../PopularClasses/PopularClasses';
 import InstrumentLife from '../../Pages/PersonalSection/InstrumentLife/InstrumentLife';
 import PopularInstructors from '../PopularInstructors/PopularInstructors';
-import React, { useState } from 'react';
+import NewSection1 from '../../Pages/PersonalSection/NewSection1/NewSection1';
+import NewSection2 from '../../Pages/PersonalSection/NewSection2/NewSection2';
+import NewSection3 from '../../Pages/PersonalSection/NewSection3/NewSection3';
+import NewSection4 from '../../Pages/PersonalSection/NewSection4/NewSection4';
 
 const Home = () => {
-  const [isBackgroundToggled, setBackgroundToggled] = useState(false);
-
-  const toggleBackground = () => {
-    setBackgroundToggled(!isBackgroundToggled);
-  };
-
-
   return (
     <div>
-      <div className='text-center'>
-      <button className='btn btn-xs' onClick={toggleBackground}>{isBackgroundToggled && "LightS" || "Dark"}</button>
-      </div>
-      <div
-        style={{
-          backgroundColor: isBackgroundToggled ? 'black' : '#ffffff',
-          minHeight: '200px',
-          padding: '20px',
-        }}
-      >
         <Slider />
         <PopularClasses />
         <PopularInstructors />
+        <NewSection1/>
+        <NewSection2/>
+        <NewSection3/>
+        <NewSection4/>
         <InstrumentLife />
-      </div>
+       
     </div>
   );
 };

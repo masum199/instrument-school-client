@@ -14,7 +14,7 @@ const Classes = () => {
     const {user} = useContext(AuthContext)
     const [isAdmin] = useAdmin()
     const [isInstructor] = useInstructor()
-    const [classes] = useClasses()
+    const [classes, , refetch] = useClasses()
     const [bookings] = useBookings()
     const navigate = useNavigate()
     const approve = classes.filter(classe => classe.status === 'approved')
@@ -28,7 +28,7 @@ const Classes = () => {
             });
             return navigate('/login')
           }
-          const response = await axios.patch('https://school-server-side.vercel.app/bookings', {
+          const response = await axios.put('https://school-server-side.vercel.app/bookings', {
             id:card._id,
             classImage: card.classImage,
             instructorEmail:card.instructorEmail,
@@ -38,6 +38,7 @@ const Classes = () => {
             user:user.email
           });
           if(response.data.insertedId){
+            refetch()
             console.log(response.data)
             Swal.fire({  
                 position: 'top',
@@ -71,7 +72,7 @@ const Classes = () => {
                             <p className="text-2xl text-white font-bold">${card.price}</p>
                         </div>
                     </div>
-                    <button onClick={()=>handleBookings(card,user)} disabled={isAdmin || isInstructor || card.availableSeats === 0 || bookings.some(booking => booking.id === card._id)}  className="btn btn-active btn-accent mt-8 mb-4 px-6 py-2 rounded-full text-lg font-bold">Select Course</button>
+                    <button onClick={()=>handleBookings(card,user)} disabled={isAdmin || isInstructor || card.availableSeats === 0 || bookings.some(booking => booking.user === user.email && booking.id === card._id)}  className="btn btn-active btn-accent mt-8 mb-4 px-6 py-2 rounded-full text-lg font-bold">Select Course</button>
                 </div>
             </div>
         ))}

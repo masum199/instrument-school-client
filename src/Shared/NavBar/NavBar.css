@@ -1,12 +1,81 @@
 .active {
-    color: #ffffff;
-    background-color: #1c1919;
-    border-radius: 50px;
-    padding: 10px 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
+  color: #f2da50;
+  background-color: transparent;
+  padding: 10px 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.heading{
+  font-size: 1.5rem;
+}
+.user-pic{
+  width: 2.5rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.btn-fix{
+  width: 50%;
+}
+.light {
+  background-color: white;
+  color: black;
+}
+.dark {
+  background-color: black;
+  color: white; 
+}
+.btn-mode{
+color: gold;
+}
+/* BREAKPOINTS */
+@media (min-width: 1200px) {
+
+    .nav-logo{
+      display: block;
+    }
+    .btn-fix{
+      width: 50%;
+    }
+ 
+}
+@media (max-width: 1200px) {
+
+    .nav-logo{
+      display: block;
+    }
+ 
+}
+
+@media (max-width: 991px) {
+.nav-logo{
+  display: block;
+}
+
+}
+
+@media (max-width: 769px) {
+.nav-logo{
+  display: block;
+}
+.btn-fix{
+  width: 30%;
+}
+
+}
+
+@media (max-width: 617px) {
+.nav-logo{
+  display: block;
+}
+}
+
+@media (max-width: 450px){
+
+}
+
+@media (max-width: 365px) {
+
+}
 
 
-  
+

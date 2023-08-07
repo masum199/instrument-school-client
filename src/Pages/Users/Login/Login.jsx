@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './Login.css'
 import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
-import { BsGoogle } from 'react-icons/Bs';
+import { BsGoogle } from 'react-icons/bs';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { saveUser } from '../../../Hooks/saveUser';

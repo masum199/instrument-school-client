@@ -4,9 +4,12 @@ import { RiDeleteBin5Fill } from 'react-icons/ri';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../../Components/AuthProvider/AuthProvider';
 const MySelectedClass = () => {
+    const {user} = useContext(AuthContext)
     const [bookings] = useBookings()
-    console.log(bookings)
+    const filteredBookings = bookings.filter(booking => booking.user === user.email);
 
     const handleDelete = (_id) => {
         const proceed = window.confirm("Are you sure you want to delete");
@@ -60,7 +63,7 @@ const MySelectedClass = () => {
                 </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-                {bookings.map((cla) => (
+                {filteredBookings.map((cla) => (
                     <tr key={cla._id}>
                         <td className="px-6 py-4 whitespace-nowrap">
                             <RiDeleteBin5Fill onClick={()=>handleDelete(cla._id)} className='text-4xl text-red-700  '/>
@@ -74,9 +77,11 @@ const MySelectedClass = () => {
                         <td className="px-6 py-4 whitespace-nowrap">{cla.price}</td>
                         <td>
                        
-                       <button className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-slate-800 bg-gradient-to-r from-yellow-500 to-yellow-300 bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'>
+                      <Link to='/dashboard/payment'>
+                      <button className='inline-flex h-12 animate-background-shine items-center justify-center rounded-md border border-slate-800 bg-gradient-to-r from-yellow-500 to-yellow-300 bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'>
                         Pay
                       </button>
+                      </Link>
                         </td>
                     </tr>
                 ))}

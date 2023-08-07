@@ -1,0 +1,95 @@
+:root {
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef;
+}
+
+.logo-container{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    align-items: center;
+    height: 40vh;
+    color: white;
+}
+
+
+.logo-container .logo-compo {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    height: 100%;
+}
+
+.logo-compo .icons {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.logo-compo:hover .icons {
+    transform: scale(1.5);
+}
+
+.logo-compo .text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.logo-compo:hover .text {
+    transform: translateY(0);
+}
+.cyn{
+    background-color: #757575;
+}
+.black{
+    background-color: #0d0d0d;
+}
+
+@media (max-width: 1200px) {
+    .logo-container{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .logo-container{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+   
+@media (max-width: 769px) {
+    .logo-container{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media (max-width: 617px) {
+
+    .logo-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 450px){
+    .logo-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 365px) {
+    .logo-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
