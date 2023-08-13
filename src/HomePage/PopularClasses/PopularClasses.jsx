@@ -20,9 +20,9 @@ const PopularClasses = () => {
           <p className='title text-5xl font-bold'>Popular Classes</p>
           <p className='title my-4'>Explore a wide range of popular music classes to enhance your musical skills and creativity</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20 ml-6 lg:ml-0">
           {descending.map((classes, index) => (
-            <div style={{ color: borderColors[index] }} key={classes._id}  className="cards font-extrabold">
+            <div style={{ color: borderColors[index] }} key={classes._id}  className="cards font-extrabold w-80">
               <div className="relative">
                 <img
                   className="w-full h-72 main-image"

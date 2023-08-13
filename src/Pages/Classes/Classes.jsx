@@ -7,7 +7,7 @@ import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import useBookings from '../../Hooks/useBookings';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Classes = () => {
@@ -20,14 +20,6 @@ const Classes = () => {
     const approve = classes.filter(classe => classe.status === 'approved')
 
     const handleBookings = async (card, user) => {
-        if (!user) {
-            Swal.fire({
-              icon: 'info',
-              title: 'Please log in',
-              text: 'You need to log in to select a course.',
-            });
-            return navigate('/login')
-          }
           const response = await axios.put('https://school-server-side.vercel.app/bookings', {
             id:card._id,
             classImage: card.classImage,
@@ -72,7 +64,8 @@ const Classes = () => {
                             <p className="text-2xl text-white font-bold">${card.price}</p>
                         </div>
                     </div>
-                    <button onClick={()=>handleBookings(card,user)} disabled={isAdmin || isInstructor || card.availableSeats === 0 || bookings.some(booking => booking.user === user.email && booking.id === card._id)}  className="btn btn-active btn-accent mt-8 mb-4 px-6 py-2 rounded-full text-lg font-bold">Select Course</button>
+                    {(user ? <button onClick={()=>handleBookings(card,user)} disabled={isAdmin || isInstructor || card.availableSeats === 0 || bookings.some(booking => booking.user === user.email && booking.id === card._id)}  className="btn btn-active btn-accent mt-8 mb-4 px-6 py-2 rounded-full text-lg font-bold">Select Course</button> : <Link to="/login">
+                    <button className="btn btn-active btn-accent mt-8 mb-4 px-6 py-2 rounded-full text-lg font-bold">Select Course</button></Link>)}
                 </div>
             </div>
         ))}
