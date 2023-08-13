@@ -25,6 +25,7 @@
 .group-container-4 > div {
     padding: 20px;
     border-radius: 10px;
+
    
 }
 
@@ -35,6 +36,12 @@
     border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
+    transition: .5s ease;
+}
+
+.group-container-4 .imgg:hover{
+    transform: scale(1.2);
+    color: rgb(215, 51, 51);
 }
 
 .group-container h1 {
@@ -50,7 +57,7 @@
 
 
 @media (max-width: 991px) {
-    .logo-container{
+    .group-container-4{
         grid-template-columns: repeat(4,1fr);
     }
 }

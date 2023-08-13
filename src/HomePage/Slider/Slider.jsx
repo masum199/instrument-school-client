@@ -35,7 +35,7 @@ const Slide = () => {
           <img
             src={image1}
             alt="image 1"
-            className="slide object-cover"
+            className="slide object-cover image-slide"
           />
           <div className="absolute inset-0 grid  h-full w-full place-items-center bg-black/75">
             <div className=" text-center  text-white">
@@ -72,7 +72,7 @@ const Slide = () => {
           <img
             src={image2}
             alt="image 1"
-            className="slide object-cover"
+            className="slide object-cover image-slide"
           />
           <div className="absolute inset-0 grid  h-full w-full place-items-center bg-black/75">
             <div className=" text-center  text-white">
@@ -109,7 +109,7 @@ const Slide = () => {
           <img
             src={image3}
             alt="image 1"
-            className="slide object-cover"
+            className="slide object-cover image-slide"
           />
           <div className="absolute inset-0 grid  h-full w-full place-items-center bg-black/75">
             <div className=" text-center  text-white">

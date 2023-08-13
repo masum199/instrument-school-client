@@ -53,7 +53,7 @@
 
 
 @media (max-width: 991px) {
-    .logo-container{
+    .group-container{
         grid-template-columns: repeat(2,1fr);
     }
 }

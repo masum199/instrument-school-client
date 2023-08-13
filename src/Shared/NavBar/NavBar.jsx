@@ -6,7 +6,8 @@ import './NavBar.css'
 import useStudent from '../../Hooks/useStudent';
 import useAdmin from '../../Hooks/useAdmin';
 import useInstructor from '../../Hooks/useInstructor';
-import {  BsFillMoonStarsFill, BsSunFill } from 'react-icons/bs';
+import { FaMoon, FaSun } from 'react-icons/fa';
+
 
 const NavBar = ({ darkMode, onToggleDarkMode }) => {
   const {user,logOut} = useContext(AuthContext)
@@ -14,6 +15,7 @@ const NavBar = ({ darkMode, onToggleDarkMode }) => {
   const [isStudent] =  useStudent()
   const [isAdmin] =  useAdmin()
   const [isInstructor] = useInstructor()
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -27,28 +29,24 @@ const NavBar = ({ darkMode, onToggleDarkMode }) => {
   }
 
   return (
-    <nav className="fixed z-10 w-full mode-toggle">
-      <div className="lg:mx-10 flex flex-wrap items-center justify-between mx-auto p-4">
+    <div className={`${isMenuOpen && 'h-36'}`}>
+      <nav className="w-full h-0 mode-toggle fixed z-10">
+      <div className=" flex flex-wrap items-center justify-between mx-auto p-4">
         <a className="flex items-center">
           <img
             src={logo}
-            className="h-14 rounded-3xl mr-3 hidden nav-logo"
+            className="h-14 rounded-3xl mr-3 lg:block hidden "
           />
           <span className="self-center heading font-semibold whitespace-nowrap text-warning ">
           SummerHub
           </span>
           <div className='mode-toggle mx-2 text-2xl btn-mode' onClick={onToggleDarkMode}>
-                {darkMode ? <BsSunFill/> : <BsFillMoonStarsFill/>}
+                {darkMode ? <FaSun/> : <FaMoon/>}
             </div>
         </a>
         <div className="flex md:order-2 nav-flex">
-          {user && <img className=' mx-4 user-pic' src={user?.photoURL} alt="" />}
-          {
-            user ? <>
-            <button onClick={handleLogout} className="btn  btn-fix">Logout</button> </> : <>
-             <Link to="/login"><button className="btn btn-fix">Login</button></Link>
-            </>
-          }
+          {user && <img className=' mx-4 user-pic hidden lg:block' src={user?.photoURL} alt="" />}
+         
           <button
             type="button"
             className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -77,7 +75,7 @@ const NavBar = ({ darkMode, onToggleDarkMode }) => {
           } w-full md:flex md:w-auto md:order-1`}
           id="navbar-cta"
         >
-          <ul className="flex mode-toggle flex-col font-medium p-4 md:p-0 mt-4   md:flex-row md:space-x-8 md:mt-0 md:border-0">
+          <ul className="text-a flex mode-toggle flex-col font-medium p-4 md:p-0 mt-4   md:flex-row md:space-x-8 md:mt-0 md:border-0">
             <NavLink to='/' activeClassName='active'>
             <li className=''>
                 Home
@@ -89,10 +87,20 @@ const NavBar = ({ darkMode, onToggleDarkMode }) => {
               isAdmin && <NavLink to='/dashboard/adminhome' activeClassName='active'> <li>Dashboard </li></NavLink> || isInstructor && <NavLink to='/dashboard/instructorhome' activeClassName='active'> <li>Dashboard </li></NavLink>
                || isStudent && <NavLink to='/dashboard/studenthome' activeClassName='active'> <li>Dashboard </li></NavLink>
             }
+            <li>
+            {
+             user ? <>
+             <button onClick={handleLogout} className="">Logout</button> </> : <>
+              <Link to="/login"><button className="">Login</button></Link>
+             </>
+           }
+          
+            </li>
           </ul>
         </div>
       </div>
     </nav>
+    </div>
   );
 };
 

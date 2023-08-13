@@ -1,69 +1,60 @@
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper';
+import useDescending from '../../Hooks/useDescending';
+import './PopularClasses.css';
+import { FaBookmark, FaTag, FaTags, FaUser } from 'react-icons/fa';
 
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-
-import { Pagination } from "swiper";
-import useDescending from "../../Hooks/useDescending";
-
-
-
-
+const borderColors = ['#808080', '#5F9EA0', '#8FBC8F', '#B8860B', '#CD5C5C', '#696969'];
 
 const PopularClasses = () => {
-  const [descending] = useDescending()
-  console.log(descending);
+  const [descending] = useDescending();
+  console.log(descending)
   return (
-    <div className='my-28 lg:ml-14'>
-
-        <div className="text-center">
-          <p className=' font-bold inline-flex animate-background-shine bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text text-6xl text-transparent'>
-            Popular Classes
-          </p>
-
+    <section className="my-20 flex justify-center">
+      <div>
+        <div className='my-4 text-center flex flex-col items-center justify-center'>
+          <img className='w-60 h-52 rounded-full' src="https://i.ibb.co/7yBBntv/Black-Simple-Music-Studio-Logo.png" alt="" />
+          <p className='title text-5xl font-bold'>Popular Classes</p>
+          <p className='title my-4'>Explore a wide range of popular music classes to enhance your musical skills and creativity</p>
         </div>
-
-
-        <div className="text-center my-10">
-          <p className=' inline-flex animate-background-shine bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text text-3xl text-transparent font-medium'>
-            Explore a wide range of popular music classes  to enhance your musical skills and creativity
-          </p>
-        </div>
-   
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        modules={[Pagination]}
-        pagination={{ clickable: true }}
-        className="mySwiper"
-      >
-        <div className="swiper-wrapper">
-          {descending.map((card) => (
-            <SwiperSlide key={card._id}
-            >
-              <div className='my-10'>
-                <img className='w-96 h-96' src={card.classImage} alt="" />
-                <div className='w-96'>
-                  <div  className="text-center my-4 font-bold  animate-background-shine bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text text-3xl text-transparent">
-                    <h2 className="">{card.name}</h2>
-                  </div>
-                  <div className="flex justify-center  gap-x-28">
-                    <div>
-                    <p className=" font-bold  animate-background-shine bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text text-1xl text-transparent">  Enrolled {card.enrolled}</p>
-                    </div>
-                    <div>
-                     <p className=" font-bold  animate-background-shine bg-[linear-gradient(110deg,#939393,45%,#1e293b,55%,#939393)] bg-[length:250%_100%] bg-clip-text text-1xl text-transparent"> Price: ${card.price}</p>
-                    </div>
-                  </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {descending.map((classes, index) => (
+            <div style={{ color: borderColors[index] }} key={classes._id}  className="cards font-extrabold">
+              <div className="relative">
+                <img
+                  className="w-full h-72 main-image"
+                  src={classes.classImage}
+                  alt=""
+                  style={{ borderBottomColor: borderColors[index] }}
+                />
+                <p className="absolute top-4 right-4 ">${classes.price}</p>
+                <img
+                  className="w-12 h-12 relative bottom-4 left-4 rounded-image"
+                  src={classes.image}
+                  alt=""
+                />
+              </div>
+              <div className='ml-5'>
+               <div className='flex justify-between items-center mr-6'>
+               <h3  className='text-2xl'>{classes.name}</h3>
+                <p className='text-2xl main-imagee'><FaBookmark/></p>
+               </div>
+                <p className='my-4'>{classes.details}</p>
+                <div className="flex items-center justify-between mr-6">
+                  <p className="flex items-center gap-x-2">
+                  SeatAvailable  <FaUser className="" /> {classes.availableSeats}
+                  </p>
+                  <p className='flex items-center'><FaTags/> Education</p>
                 </div>
               </div>
-            </SwiperSlide>
+            </div>
           ))}
         </div>
-      </Swiper>
-
-    </div>
+      </div>
+    </section>
   );
 };
 

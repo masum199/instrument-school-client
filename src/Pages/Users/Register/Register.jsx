@@ -4,7 +4,6 @@ import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Register.css'
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import canvaImage from '../../../assets/images/cool-background.png'
 import { BsGoogle } from 'react-icons/Bs';
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { saveUser } from '../../../Hooks/saveUser';

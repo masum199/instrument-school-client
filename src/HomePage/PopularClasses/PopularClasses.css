@@ -1,0 +1,47 @@
+.rounded-image{
+    border-radius: 50%;
+    border: solid 3px white;
+
+}
+.main-image{
+    border-bottom: solid 6px;
+    border-top: 10px;
+    transition: all 0.5s;   
+}
+.main-imagee{
+    transition: all 0.5s;   
+}
+.main-image:hover{
+    transform: scale(1.1);
+    
+}
+.main-imagee:hover{
+    transform: scale(1.5);
+    
+}
+.cards{
+    border-radius: 10px;
+    height: 100%;
+    background: #f7f7f7;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px 10px #1d1c1c1a;
+    padding-bottom: 20px;
+}
+
+.title1 {
+    background: linear-gradient(110deg, #2c1e1e 45%, #1e293b 55%, #939393);
+    background-size: 250% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}

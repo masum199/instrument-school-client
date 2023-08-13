@@ -5,17 +5,33 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+.text-a li{
+  background: linear-gradient(110deg, #cfb720 45%, #c24747 55%, #ac6aa5);
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shinee 5s linear infinite;
+}
+
+@keyframes shinee {
+  0% {
+      background-position: 0% 0%;
+  }
+  100% {
+      background-position: 200% 0%;
+  }
+}
+
 .heading{
   font-size: 1.5rem;
 }
 .user-pic{
   width: 2.5rem;
-  height: 3rem;
+  height: 2.5rem;
   border-radius: 50%;
 }
-.btn-fix{
-  width: 50%;
-}
+
 .light {
   background-color: white;
   color: black;

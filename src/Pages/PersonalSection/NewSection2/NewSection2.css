@@ -58,20 +58,23 @@
 
 @media (max-width: 1200px) {
     .logo-container{
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(2,1fr);
+        height: 100vh;
     }
 }
 
 @media (max-width: 991px) {
     .logo-container{
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(2,1fr);
+        height: 100vh;
     }
 }
 
    
 @media (max-width: 769px) {
     .logo-container{
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2,1fr);
+        height: 100vh;
     }
 }
 
@@ -79,17 +82,20 @@
 
     .logo-container{
         grid-template-columns: repeat(2,1fr);
+        height: 100vh;
     }
 }
 
 @media (max-width: 450px){
     .logo-container{
         grid-template-columns: repeat(2,1fr);
+        height: 100vh;
     }
 }
 
 @media (max-width: 365px) {
     .logo-container{
         grid-template-columns: repeat(2,1fr);
+        height: 100vh;
     }
 }
